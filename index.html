@@ -1,0 +1,1480 @@
+<!DOCTYPE html>
+<html>
+<head> 
+  <title>LVP Analysis Tool_by Pranav Tiwari</title> 
+ <style>
+
+body { margin: 0;
+  padding: 0;
+  background-image: linear-gradient(to bottom, #ffff80, skyblue);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;}
+
+.box {
+      border: 1px outset #333;
+      padding: 1px;
+      border-radius: 30px;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+      background-color: #C7CBA0;
+      width: 99.5%; /* Adjust the width as needed */
+      margin: 0 auto;
+      
+      <--! margin: 0 auto; /* Center the box horizontally */ -->
+    }
+
+  .second-box {
+      border: 1px outset #333;
+      padding: 1px;
+      border-radius: 30px;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+      background-color: #A7BDC1; /* Light orange background color for the second box */
+      width: 99.5%; /* Set width to 100% */
+      margin-bottom: 0px; /* Add some spacing between boxes */
+      margin: 0 auto;
+      
+      
+    }
+
+.second-box h4 {
+    margin: 6px 0; /* Adjust the margin as needed */
+  }
+
+
+ .second-box table td {
+    padding: 7px; /* Adjust the padding as needed to reduce the gap */
+  }
+
+  .third-box {
+      border: 1px outset #333;
+      padding: 1px;
+      border-radius: 30px;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+      background-color: #D5CE7C; /* Light orange background color for the second box */
+      width: 99.5%; /* Set width to 100% */
+      margin-bottom: 2px; /* Add some spacing between boxes */
+      margin: 0 auto;
+      
+    }
+
+
+.third-box h4 {
+    margin: 7px 0; /* Adjust the margin as needed */
+  }
+
+ .third-box table td {
+    padding: 2px; /* Adjust the padding as needed to reduce the gap */
+  }
+
+
+
+ .third-box .action-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+
+  }
+
+
+
+.action-button {
+  background-color: #2196f3;
+  color: #ffffff;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+  text-shadow: 4px 2px 2px rgba(0, 0, 0, 0.5);
+  background-image: linear-gradient(to bottom, #2c82d3, #2170b5);
+  width: 120px;
+}
+
+.action-button:hover {
+  background-color: darkgreen;
+}
+
+
+
+    .container {
+      margin: 20px;
+       
+    }
+
+
+
+    .container {
+      margin: 20px;
+       
+    }
+
+    label {
+      display: block;
+      width: 200px;
+      margin-bottom: 4px;
+     
+    }
+
+    .dropdown {
+      display: inline-block;
+      width: 150px;
+      outline-style: dotted;
+    }
+
+    input[type="submit"] {
+      margin-top: 10px;
+      outline-style: outset;
+      background-color: blue;
+      color: white;
+      padding: 12px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.4s ease;
+border-radius: 50px; box-shadow: 4px 8px 2px rgba(0, 0, 0, 0.3); text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+font-weight: bold;
+    }
+
+    input[type="submit"]:hover {
+      background-color: darkgreen;
+    }
+
+  td {
+    padding: 7px; /* Adjust the value to increase or decrease the gap */
+  }
+
+   .floating-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+    padding: 15px 1;
+  }
+
+  .floating-heading {
+    display: inline-block;
+    white-space: nowrap;
+    animation: floatAnimation 20s linear infinite;
+    font-size: 16px;
+    font-weight: bold;
+    color: red; 
+    font-style: italic; 
+text-decoration: underline;
+ opacity: 0.8;
+  }
+
+  @keyframes floatAnimation {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+
+/* LVP Analysis Tool by PKT AM ATC, EMP 10009954*/
+
+  #time option {
+    background-color: #ffe6e6; /* Background color */
+    color: navy; /* Text color */
+    font-weight: bold; /* Font weight */
+  }
+
+
+  #b2 option {
+    background-color: #ffe6e6; /* Background color */
+    color: black; /* Text color */
+    font-weight: bold; /* Font weight */
+  }
+
+  #c2 option {
+    background-color: #ffe6e6; /* Background color */
+    color: black; /* Text color */
+    font-weight: bold; /* Font weight */
+  }
+
+
+ #d2 option {
+    background-color: #ffe6e6; /* Background color */
+    color: black; /* Text color */
+    font-weight: bold; /* Font weight */
+  }
+
+
+
+  #f6 option {
+    background-color: #ffe6e6; /* Background color */
+    color: black; /* Text color */
+    font-weight: bold; /* Font weight */
+  }
+
+  #g6 option {
+    background-color: #ffe6e6; /* Background color */
+    color: black; /* Text color */
+    font-weight: bold; /* Font weight */
+  }
+
+
+ #h6 option {
+    background-color: #ffe6e6; /* Background color */
+    color: black; /* Text color */
+    font-weight: bold; /* Font weight LVP TOOL BY Pranav kumar Tiwari AM ATC 10009954 */
+  }
+
+   .box-container {
+    float: right; 
+    border: 1px solid #333;
+    padding: 5px;
+    background-color: #ffff99;
+    text-align: right;
+    border-radius: 4px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    opacity: 0;/* Pranav AM ATC 10009954 */
+    transition: opacity 7s ease;
+  }
+
+  .box-container.show {
+    opacity: 1;
+  }
+
+  .box-container a {
+    display: block;
+    margin-bottom: 1px;
+    color: blue;/* 10009954 */
+    text-decoration: underline;
+    font-weight: bold;
+  }
+
+ a {
+    color: blue;
+    text-decoration: underline;
+    font-weight: bold;
+  }
+
+
+  a:hover {
+    color: red; 
+  }
+
+
+
+  </style>
+
+
+
+</head>
+<body>
+
+
+
+
+<div class="floating-container">
+  <h1 class="floating-heading">LVP ANALYSIS TOOL - AN ADDITIONAL GUIDANCE</h2>
+</div>
+
+
+<br>
+<table>
+<tr>
+
+
+
+<div class="container"> 
+
+   <td><label for="time" style="font-weight: bold; color: indigo;"><span style="background-color: powderblue;">Time_for Departures:</span></label>
+    <select id="time" name="time">
+      <option value="DAY">DAY</option>
+      <option value="NIGHT">NIGHT</option>
+    </select>
+
+
+    <td><label for="b2" style="font-weight: bold; color: indigo;"><span style="background-color: powderblue;">SELECT TDZ RVR:</span></label>
+    <select id="b2" name="b2">
+      <option value="NOT REPORTED">NOT REPORTED</option>
+      <option value="800">800</option>
+      <option value="775">775</option>
+      <option value="750">750</option>
+      <option value="725">725</option>
+      <option value="700">700</option>
+      <option value="675">675</option>
+      <option value="650">650</option>
+      <option value="625">625</option>
+      <option value="600">600</option>
+      <option value="575">575</option>
+      <option value="550">550</option>
+      <option value="525">525</option>
+      <option value="500">500</option>
+      <option value="475">475</option>
+      <option value="450">450</option>
+      <option value="425">425</option>
+      <option value="400">400</option>
+      <option value="375">375</option>
+      <option value="350">350</option>
+      <option value="325">325</option>
+      <option value="300">300</option>
+      <option value="275">275</option>
+      <option value="250">250</option>
+      <option value="225">225</option>
+      <option value="200">200</option>
+      <option value="175">175</option>
+      <option value="150">150</option>
+      <option value="125">125</option>
+      <option value="100">100</option>
+      <option value="75">75</option>
+      <option value="50">50</option>
+      <option value="25">25</option>
+
+      <!-- Add other options here -->
+    </select>
+    <br>
+
+    <td><label for="c2" style="font-weight: bold; color: indigo;"><span style="background-color: powderblue;">SELECT MID RVR:</span></label>
+    <select id="c2" name="c2">
+      <option value="NOT REPORTED">NOT REPORTED</option>
+      <option value="800">800</option>
+      <option value="775">775</option>
+      <option value="750">750</option>
+       <option value="725">725</option>
+      <option value="700">700</option>
+      <option value="675">675</option>
+      <option value="650">650</option>
+      <option value="625">625</option>
+      <option value="600">600</option>
+      <option value="575">575</option>
+      <option value="550">550</option>
+      <option value="525">525</option>
+      <option value="500">500</option>
+      <option value="475">475</option>
+      <option value="450">450</option>
+      <option value="425">425</option>
+      <option value="400">400</option>
+      <option value="375">375</option>
+      <option value="350">350</option>
+      <option value="325">325</option>
+      <option value="300">300</option>
+      <option value="275">275</option>
+      <option value="250">250</option>
+      <option value="225">225</option>
+      <option value="200">200</option>
+      <option value="175">175</option>
+      <option value="150">150</option>
+      <option value="125">125</option>
+      <option value="100">100</option>
+      <option value="75">75</option>
+      <option value="50">50</option>
+      <option value="25">25</option>
+
+      <!-- Add other options here -->
+    </select>
+    <br>
+
+    <td><label for="d2" style="font-weight: bold; color: indigo;"><span style="background-color: powderblue;">SELECT END RVR:</span></label>
+    <select id="d2" name="d2">
+      <option value="NOT REPORTED">NOT REPORTED</option>
+      <option value="800">800</option>
+      <option value="775">775</option>
+      <option value="750">750</option>
+       <option value="725">725</option>
+      <option value="700">700</option>
+      <option value="675">675</option>
+      <option value="650">650</option>
+      <option value="625">625</option>
+      <option value="600">600</option>
+      <option value="575">575</option>
+      <option value="550">550</option>
+      <option value="525">525</option>
+      <option value="500">500</option>
+      <option value="475">475</option>
+      <option value="450">450</option>
+      <option value="425">425</option>
+      <option value="400">400</option>
+      <option value="375">375</option>
+      <option value="350">350</option>
+      <option value="325">325</option>
+      <option value="300">300</option>
+      <option value="275">275</option>
+      <option value="250">250</option>
+      <option value="225">225</option>
+      <option value="200">200</option>
+      <option value="175">175</option>
+      <option value="150">150</option>
+      <option value="125">125</option>
+      <option value="100">100</option>
+      <option value="75">75</option>
+      <option value="50">50</option>
+      <option value="25">25</option>
+
+      <!-- Add other options here -->
+    </select>
+    <br>
+
+
+ <td><td><td><input type="submit" value="After selecting RVR from dropdown...CLICK ME !!" onclick="calculateILSApproach()">
+    <br>
+<td><button onclick="location.reload()" style="cursor: pointer;">Refresh Data / Page</button> <br>
+</tr>
+</table>
+
+
+  <table><tr>
+<td>  <label for="ils-approach" style="font-weight: bold;" >Type of ILS Approach:</label>
+    <textarea id="ils-approach-result" rows="2" cols="30" readonly style=" background-color: mediumaquamarine;border: 1px solid #ccc; padding: 8px; border-radius: 30px; box-shadow: 0px 8px 4px rgba(0, 0, 0, 0.3);font-weight: bold;color: navy;font-size: 17px;text-align: center;"></textarea>
+ 
+   <td> <label for="departure" style="font-weight: bold;" >Departure:</label>
+    <textarea id="departure-result" rows="2" cols="40" readonly style=" background-color: mediumaquamarine;border: 1px solid #ccc; padding: 8px; border-radius: 30px; box-shadow: 0px 8px 4px rgba(0, 0, 0, 0.3);font-weight: bold;color: navy;font-size: 17px;text-align: center;"></textarea>
+
+<td><label for="availability" style="font-weight: bold;">Lights req for Dep:</label>
+    <textarea id="availability-result" rows="2" cols="40" readonly style=" background-color: mediumaquamarine;border: 1px solid #ccc; padding: 8px; border-radius: 30px; box-shadow: 0px 8px 4px rgba(0, 0, 0, 0.3);font-weight: bold;color: navy;font-size: 17px;text-align: center;"></textarea>
+
+</tr>
+</table>
+<br>
+
+
+
+
+<div class="box">
+  <table>
+    <tr>
+      <td>
+        <strong>
+          <span style="background-color: yellow; font-size: 15px;">
+            <u>SELECT RUNWAY TO CHECK SPACING DURING LVP ?</u>
+          </span>
+        </strong>
+      </td>
+      <td>
+        <label >
+          <input type="radio" name="spacing" value="yes" onclick="handleRadioSelection('01R')"><span style="font-weight: bold;"> 01R</span>
+        </label>
+      </td>
+      <td>
+        <label>
+          <input type="radio" name="spacing" value="no" onclick="handleRadioSelection('19L')"> <span style="font-weight: bold;"> 19L </span>
+        </label>
+      </td>
+    </tr>
+  </table>
+
+  <div class="box-container">
+    <a href="https://www.dgca.gov.in/digigov-portal/?dynamicPage=CivilAviationReqContent/6/315/viewDynamicRuleContLvl2/html&maincivilAviationRequirements/6/0/viewDynamicRulesReq" target="_blank">Click to visit DGCA CAR SEC 8 SER C PART 1</a>
+    <a href="https://aim-india.aai.aero/eaip-v2-03-2023/index-en-GB.html" target="_blank" >Click to visit EAIP PAGE!</a>
+  </div>
+
+  <table>
+    <tr>
+      <td>
+        <label for="textarea1" style="font-weight: bold;">[Spacing between ARR:]</label>
+        <textarea id="textarea1" rows="2" cols="41" readonly style="background-color: mediumaquamarine; font-weight: bold; color: navy;font-size: 15px;"></textarea>
+      </td>
+      <td>
+        <label for="textarea1" style="font-weight: bold;">[Spacing for DEP:]</label>
+        <textarea id="textarea2" rows="2" cols="41" readonly style="background-color: mediumaquamarine; font-weight: bold; color: navy;font-size: 15px;"></textarea>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+
+
+
+<div class="second-box">
+
+<h4><u><span style="background-color: yellow;"> IS THERE ANY LIGHTING/EQUIP OUTAGE, FILL DETAILS BELOW</span></u></h4>   
+<table><tr>
+
+<td><label for="lighting" style="color: yellow;"><span style="background-color: peru;">LGT/EQP OUTAGE:</span></label>
+<select id="lighting" name="lighting">
+  <option value="0-5% THR LGT">0-5% THR LGT</option>
+  <option value="6-100% THR LGT">6-100% THR LGT</option>
+  <option value="6-100% APP LGT INNR 450M">6-100% APP LGT INNR 450M</option>
+  <option value="0-5% APP LGT INNR 450M">0-5% APP LGT INNR 450M</option>
+  <option value="6-100% CNTRL LGT">6-100% CNTRL LGT</option>
+  <option value="0-5% CNTRL LGT">0-5% CNTRL LGT</option>
+  <option value="6-100% EDGE LGT">6-100% EDGE LGT</option>
+  <option value="0-5% EDGE LGT">0-5% EDGE LGT</option>
+  <option value="0-10% TDZ LGT">0-10% TDZ LGT</option>
+  <option value="11-100% TDZ LGT">11-100% TDZ LGT</option>
+  <option value="0-25% END LGT">0-25% END LGT</option>
+  <option value="26-100% END LGT">26-100% END LGT</option>
+  <option value="LLZ">LLZ</option>
+  <option value="GP">GP</option>
+  <option value="DME">DME</option>
+  <option value="ASMGCS">ASMGCS</option>
+  <option value="STPBR">STPBR</option>
+  <option value="0-15% APP LGT OUTR 450M">0-15% APP LGT OUTR 450M</option>
+  <option value="16-100% APP LGT OUTR 450M">16-100% APP LGT OUTR 450M</option>
+</select>
+<br><br>
+
+
+<td><label for="lighting-output" style="color: yellow;"><span style="background-color: peru;">OUTPUT:</span></label>
+    <textarea id="lighting-output" rows="1" cols="28" readonly style=" background-color: mediumaquamarine;border: 1px solid #ccc; padding: 10px; border-radius: 5px; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);font-weight: bold;color: navy;font-size: 14px;text-align: center;"></textarea>
+
+   
+   <td> <br><input type="submit"  value="Click to check impact" onclick="calculateLightingOutput()">
+   <br>
+
+<!-- </tr></table>  -->
+
+</tr></table>
+
+<table><tr>
+
+<!-- <table>   -->
+ <!-- <tr> -->
+    <td><h4>Are any 2 consecutive lights of this list down?</h4></td>
+    <td>
+      <label>
+        <input type="radio" name="lights" value="yes"><span style="font-weight: bold;"> Yes</span>
+      </label>
+    </td>
+    <td>
+      <label>
+        <input type="radio" name="lights" value="no"> <span style="font-weight: bold;"> No </span>
+      </label>
+
+
+<td><textarea id="outputTextarea" rows="2" cols="22" readonly style=" background-color: mediumaquamarine;border: 1px solid #ccc; padding: 1px; border-radius: 10px; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);font-weight: bold;color: navy;font-size: 15px;text-align: center;"></textarea>
+
+    </td>
+  </tr>
+</table>
+
+
+</div>
+
+
+<div class="third-box">
+
+
+<h4 ><u> <span style="background-color: yellow;"> NOT SURE WHETHER TO IMPLEMENT SP/LVP , FILL DETAILS BELOW</span></u></h4>
+<table>
+<tr>
+ <td> <label for="f6" style="font-weight: bold; color: white;"><span style="background-color: mediumpurple;">TDZ RVR:</span></label>
+    <select id="f6" name="f6">
+      <option value="NOT REPORTED">NOT REPORTED</option>
+       <option value="1500">1500</option>
+       <option value="1400">1400</option>
+       <option value="1300">1300</option>
+       <option value="1200">1200</option>
+       <option value="1150">1150</option>
+       <option value="1100">1100</option>
+       <option value="1050">1050</option>
+       <option value="1000">1000</option>
+       <option value="950">950</option>
+       <option value="900">900</option>
+       <option value="850">850</option>
+      <option value="800">800</option>
+      <option value="775">775</option>
+      <option value="750">750</option>
+      <option value="725">725</option>
+      <option value="700">700</option>
+      <option value="675">675</option>
+      <option value="650">650</option>
+      <option value="625">625</option>
+      <option value="600">600</option>
+      <option value="575">575</option>
+      <option value="550">550</option>
+      <option value="525">525</option>
+      <option value="500">500</option>
+      <option value="475">475</option>
+      <option value="450">450</option>
+      <option value="425">425</option>
+      <option value="400">400</option>
+      <option value="375">375</option>
+      <option value="350">350</option>
+      <option value="325">325</option>
+      <option value="300">300</option>
+      <option value="275">275</option>
+      <option value="250">250</option>
+      <option value="225">225</option>
+      <option value="200">200</option>
+      <option value="175">175</option>
+      <option value="150">150</option>
+      <option value="125">125</option>
+      <option value="100">100</option>
+      <option value="75">75</option>
+      <option value="50">50</option>
+      <option value="25">25</option>
+
+      <!-- Add other options here -->
+    </select>
+    <br>
+
+   <td> <label for="g6" style="font-weight: bold; color: white;"><span style="background-color: mediumpurple;">MID RVR:</span></label>
+    <select id="g6" name="g6">
+      <option value="NOT REPORTED">NOT REPORTED</option>
+       <option value="1500">1500</option>
+       <option value="1400">1400</option>
+       <option value="1300">1300</option>
+       <option value="1200">1200</option>
+       <option value="1150">1150</option>
+       <option value="1100">1100</option>
+       <option value="1050">1050</option>
+       <option value="1000">1000</option>
+       <option value="950">950</option>
+       <option value="900">900</option>
+       <option value="850">850</option>
+      <option value="800">800</option>
+      <option value="775">775</option>
+      <option value="750">750</option>
+       <option value="725">725</option>
+      <option value="700">700</option>
+      <option value="675">675</option>
+      <option value="650">650</option>
+      <option value="625">625</option>
+      <option value="600">600</option>
+      <option value="575">575</option>
+      <option value="550">550</option>
+      <option value="525">525</option>
+      <option value="500">500</option>
+      <option value="475">475</option>
+      <option value="450">450</option>
+      <option value="425">425</option>
+      <option value="400">400</option>
+      <option value="375">375</option>
+      <option value="350">350</option>
+      <option value="325">325</option>
+      <option value="300">300</option>
+      <option value="275">275</option>
+      <option value="250">250</option>
+      <option value="225">225</option>
+      <option value="200">200</option>
+      <option value="175">175</option>
+      <option value="150">150</option>
+      <option value="125">125</option>
+      <option value="100">100</option>
+      <option value="75">75</option>
+      <option value="50">50</option>
+      <option value="25">25</option>
+
+      <!-- Add other options here -->
+    </select>
+    <br>
+
+    <td> <label for="h6" style="font-weight: bold; color: white;"><span style="background-color: mediumpurple;">END RVR:</span></label>
+    <select id="h6" name="h6">
+      <option value="NOT REPORTED">NOT REPORTED</option>
+       <option value="1500">1500</option>
+       <option value="1400">1400</option>
+       <option value="1300">1300</option>
+       <option value="1200">1200</option>
+       <option value="1150">1150</option>
+       <option value="1100">1100</option>
+       <option value="1050">1050</option>
+       <option value="1000">1000</option>
+       <option value="950">950</option>
+       <option value="900">900</option>
+       <option value="850">850</option>
+      <option value="800">800</option>
+      <option value="775">775</option>
+      <option value="750">750</option>
+       <option value="725">725</option>
+      <option value="700">700</option>
+      <option value="675">675</option>
+      <option value="650">650</option>
+      <option value="625">625</option>
+      <option value="600">600</option>
+      <option value="575">575</option>
+      <option value="550">550</option>
+      <option value="525">525</option>
+      <option value="500">500</option>
+      <option value="475">475</option>
+      <option value="450">450</option>
+      <option value="425">425</option>
+      <option value="400">400</option>
+      <option value="375">375</option>
+      <option value="350">350</option>
+      <option value="325">325</option>
+      <option value="300">300</option>
+      <option value="275">275</option>
+      <option value="250">250</option>
+      <option value="225">225</option>
+      <option value="200">200</option>
+      <option value="175">175</option>
+      <option value="150">150</option>
+      <option value="125">125</option>
+      <option value="100">100</option>
+      <option value="75">75</option>
+      <option value="50">50</option>
+      <option value="25">25</option>
+
+      <!-- Add other options here -->
+    </select>
+
+
+
+<td><label for="trend" style="font-weight: bold; color: indigo;"><span style="background-color:  #ff8080;">*Trend/VIS(if trend NOSIG) </span></label>
+<input type="text" id="trend" name="trend">
+//input ex: 900
+
+
+
+ <td><td><label for="action-to-be-taken" style="font-weight: bold;">Action to be Taken:</label>
+    <textarea id="action-to-be-taken-result" rows="3" cols="15" readonly style=" background-color: mediumaquamarine;border: 1px solid #ccc; padding: 6px; border-radius: 5px; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);font-weight: bold;color: navy;font-size: 15px;"></textarea>  
+
+
+  </tr></table>
+
+
+
+<div class="action-container">
+ <input type="submit"  value="Click for Action" onclick="calculateActionToBeTaken()" >
+</div>
+
+
+</div>
+
+
+<table><tr>
+
+  <td><button onclick="openNewPage()" style="background-color: #3BB6AB; color: #060C06; padding: 10px; border: none; cursor: pointer;
+  border-radius: 50px; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3); text-shadow: 1px 0px 0px rgba(0, 0, 0, 0.5);
+  background-image: linear-gradient(to bottom, #3BB6AB, #D2E425);">CLICK !! for Roles and responsibilities of TWR/SMC/TSO during LVP</button>
+
+  </tr></table>
+
+
+
+</div>
+
+  <div id="newPageContent" style="display: none;">
+    <h2><u>Roles/Responsibilities of SMC_TWR_TSO during LVP(SSI 01_2018 / MATS 2) </u></h2>
+    <h3> *CLD shall be manned during LVP</h3>
+    <p><table><tr><strong><u>When any aircraft calls SMC for push back/start up during LVP, SMC shall</u></strong><br><br>
+
+<tr>i. Pass the latest RVR information and trend.<br></tr>
+<tr>ii. If the RVR is less than 550 M, check aircraft intention.<br></tr>
+<tr>iii. If aircraft is ready, pushback/start up shall be approved according to sequence
+and traffic, else decide the sequence and intimate aircraft accordingly. In such
+cases aircraft will continue monitoring GROUND frequency.<br>
+<tr>iv. When Visibility/RVR permits, approve push back/start up as per the sequence
+decided earlier (refer pt. iii).<br>
+<tr>v. Clear departing aircraft to CAT-II/CAT-III holding point only.<br>
+<tr>vi. Approve taxi routings via LVP taxi routes.<br>
+<tr>vii. Use ITH judiciously.<br>
+<tr>viii. Handover one aircraft at a time to Tower Controller.<br>
+<tr>ix. SMC shall inform all taxiing aircraft of the preceding taxiing or holding aircraft.<br>
+<tr>x. Simultaneous push & start during LVP shall be suspended.<br>
+<br><br><tr><strong><u>
+Tower Controller shall:</u></strong>
+
+<br><br><tr>i. Use stop bars judiciously<br>
+<tr>ii. Approve taxi routings via LVP taxi routes.</tr><br>
+<tr>iii. Landing clearance shall not be issued until preceding landing aircraft has vacated Localizer Sensitive Area (LSA) and confirmed by Pilot or preceding departing aircraft is airborne and has passed over the localizer antenna(in any case not later than 2 NM)</tr><br>
+<tr>iv.Check ILS status</tr><br>
+<tr>v.Check AGL lighting is correctly selected and operating properly</tr><br>
+<tr>vi.Inform changes in RVR readings to the landing aircraft.</tr><br>
+<tr>vi.Check transmissometers display</tr><br>
+
+
+<br><br><tr><strong><u>TSO shall:</u></strong>
+
+<br><br><tr>i. Monitor selection of appropriate AGL including Stop bars in coordination with
+Tower and SMC Controllers.<br>
+<tr>ii. Monitor traffic on LVP taxiways, especially the hot spots.<br>
+<tr>iii. Prepare and mail LVP report (from 15 Nov to 15 Feb daily including NIL report and
+from 16 Feb to 14 Nov as and when LVP is implemented_check TLI 63/2019 for email addresses).</tr><br> 
+<tr>iv. Inform Aerodrome Rescue & Fire Fighting Services & AOCC</tr><br>
+<tr>v.Check ATIS broadcast and include the message that “ILS CAT II/CAT III LOW VISIBILITY PROCEDURES IN FORCE”.</tr><br>
+ <tr>vi.TSO shall promptly inform SSO and/or AOCC, as appropriate, of any un-serviceability of ILS/ AGL observed or reported</tr><br>
+<tr>vii.Check ASMGCS status (for operations below RVR 350 m)</tr><br>
+<tr>ix.After implementation of LVP aeronautical ground lights must be inspected after every subsequent 02 hour period.</tr></table></p>
+    <!-- Add more content as needed -->
+  </div>
+
+
+  <script>
+    function calculateILSApproach() {
+      var time = document.getElementById("time").value;
+      var b2 = document.getElementById("b2").value;
+      var c2 = document.getElementById("c2").value;
+      var d2 = document.getElementById("d2").value;
+
+      // Apply the formula
+      var result = "";
+      if (b2 === "NOT REPORTED" && c2 === "NOT REPORTED" && d2 === "NOT REPORTED") {
+        result = "SUSPEND CAT2/3";
+      }
+      else if ((b2 === "NOT REPORTED" || c2 === "NOT REPORTED") && !(b2 === "NOT REPORTED" && c2 === "NOT REPORTED" && d2 === "NOT REPORTED") && (b2 < 550 || d2 < 125 || b2 === "NOT REPORTED")) {
+        result = "SUSPEND CAT2/3";
+      }
+      else if (Math.min(b2, c2) >= 25 && Math.max(b2, c2) < 175 && d2 === "NOT REPORTED") {
+        result = "SUSPEND CAT2/3";
+      }
+      else if (b2 < 550 && b2 > 300 && c2 === "NOT REPORTED" && d2 === "NOT REPORTED") {
+        result = "SUSPEND CAT2";
+      }
+      else if (b2 >= 50 && b2 <= 800 && c2 >= 50 && c2 < 125 && d2 >= 50 && d2 < 125) {
+        result = "CAT3b";
+      }
+      else if (c2 >= 50 && c2 <= 800 && b2 >= 50 && b2 < 125 && d2 >= 50 && d2 < 125) {
+        result = "CAT3b";
+      }
+      else if (d2 >= 50 && d2 <= 800 && c2 >= 50 && c2 < 125 && b2 >= 50 && b2 < 125) {
+        result = "CAT3b";
+      }
+      else if (b2 === "NOT REPORTED" && c2 === "NOT REPORTED" && !(d2 === "NOT REPORTED")) {
+        result = "SUSPEND CAT2/3";
+      }
+      else if (d2 === "NOT REPORTED" && b2 >= 300 && b2 < 550 && c2 >= 125) {
+        result = "CAT2";
+      }
+      else if (d2 === "NOT REPORTED" && b2 < 800 && b2 >= 175 && c2 < 125 && c2 >= 25) {
+        result = "SUSPEND CAT3";
+      }
+      else if (d2 === "NOT REPORTED" && b2 < 175 && (c2 < 125 || c2 >= 175)) {
+        result = "SUSPEND CAT3";
+      }
+      else if (d2 === "NOT REPORTED" && b2 < 300 && (c2 < 900 && c2 >= 25)) {
+        result = "SUSPEND CAT3";
+      }
+      else if (b2 < 50 || c2 < 50 || d2 < 50) {
+        result = "RWY NOT CAPABLE FOR CAT 3C";
+      }
+      else if ((b2 < 125 || c2 < 125 || d2 < 125) && !(b2 === "NOT REPORTED" || c2 === "NOT REPORTED" || d2 === "NOT REPORTED")) {
+        result = "CAT3b";
+      }
+      else if ((b2 === "150" || b2 === "125" || b2 === "100") && !(c2 === "NOT REPORTED" || d2 === "NOT REPORTED")) {
+        result = "CAT3b";
+      }
+      else if (b2 >= 550 && c2 === "NOT REPORTED" && d2 >= 125) {
+        result = "CAT1";
+      }
+
+   else if (b2 >= 550 && c2 === "NOT REPORTED" && d2=== "NOT REPORTED") {
+        result = "CAT1";
+      }
+
+ else if (b2 >= 550 && c2 >= 125 && d2=== "NOT REPORTED") {
+        result = "CAT1";
+      }
+
+      else if (b2 >= 550 && c2 >= 125 && d2 >= 125) {
+        result = "CAT1";
+      }
+      else if (b2 >= 300 && b2 < 550 && c2 >= 125 && d2 >= 125) {
+        result = "CAT2";
+      }
+      else if (b2 >= 175 && b2 < 300 && c2 >= 125 && d2 >= 125) {
+        result = "CAT3A";
+      }
+
+
+      // Apply the formula for Departure
+
+    var departureResult = "";
+var minRVR = Math.min(b2, c2, d2);
+if (minRVR < 125) {
+  departureResult = "DEP NOT PERMITTED, MIN RVR FOR NSCBI IS 125M";
+
+}
+ else if (b2 === "NOT REPORTED" && c2 === "NOT REPORTED" && d2 === "NOT REPORTED") {
+  departureResult = "DEPARTURE CANNOT GO, MID AND END RVR BOTH NEEDED TO ASSESS TDZ RVR BY PIC";
+
+}
+else if ((b2 === "NOT REPORTED" && c2 === "NOT REPORTED") && d2 !== "NOT REPORTED") {
+  departureResult = "DEPARTURE CANNOT GO, MID AND END RVR BOTH NEEDED TO ASSESS TDZ RVR BY PIC";
+}
+else if (b2 === "NOT REPORTED" && c2 === "NOT REPORTED" && d2 >= 25) {
+  departureResult = "DEPARTURE CANNOT GO, MID AND END RVR BOTH NEEDED TO ASSESS TDZ RVR BY PIC";
+}
+else if (b2 === "NOT REPORTED" && d2 === "NOT REPORTED") {
+  departureResult = "DEPARTURE CANNOT GO, MID AND END RVR BOTH NEEDED TO ASSESS TDZ RVR BY PIC";
+}
+else if ((b2 < 200 || c2 < 200 || d2 < 200) && (b2 === "NOT REPORTED" || c2 === "NOT REPORTED" || d2 === "NOT REPORTED")) {
+  departureResult = "DEP NOT PERMITTED, ALL RVRs NEEDED BELOW 200M";
+}
+else if (b2 < 125 || c2 < 125 || d2 < 125) {
+  departureResult = "DEP NOT PERMITTED, MIN RVR FOR NSCBI IS 125M";
+}
+
+else if (b2 === "NOT REPORTED" && c2 >=200 && d2 >= 200) {
+  departureResult = "DEPARTURE CAN GO";
+}
+
+else {
+  departureResult = "DEPARTURE CAN GO";
+}
+
+
+
+
+      // Apply the formula for "Ensure availability of following for Departure"
+
+     var availabilityResult = "";
+
+if (
+  departureResult === "DEP NOT PERMITTED, ALL RVRs NEEDED BELOW 200M" ||
+  departureResult === "DEP NOT PERMITTED, MIN RVR FOR NSCBI IS 125M" ||
+  departureResult === "DEPARTURE CANNOT GO, MID AND END RVR BOTH NEEDED TO ASSESS TDZ RVR BY PIC" ||
+  departureResult === "DEPARTURE CANNOT GO"
+) {
+  availabilityResult = "DEPARTURE NOT PERMITTED";
+} else if (
+  b2 === "NOT REPORTED" &&
+  c2 === "NOT REPORTED" &&
+  d2 === "NOT REPORTED"
+) {
+  availabilityResult = "DEPARTURE NOT PERMITTED";
+} else if (
+  Math.min(b2, c2, d2) >= 500 &&
+  Math.max(b2, c2, d2) <= 800 &&
+  time === "DAY"
+) {
+  availabilityResult = "ADEQUATE VISUAL REFERENCE";
+}
+else if (b2 === "NOT REPORTED" &&
+  Math.min(c2, d2) >= 500 &&
+  Math.max(c2, d2) <= 800 &&
+  time === "DAY"
+) {
+  availabilityResult = "ADEQUATE VISUAL REFERENCE";
+}
+
+else if (b2 === "NOT REPORTED" &&
+  Math.min(c2, d2) >= 400 &&
+  Math.max(c2, d2) <= 800 &&
+  time === "NIGHT"
+) {
+  availabilityResult = "RWY EDGE LGT OR CENTRE LINE LGTS & RWY END LGT (NOT LVTO)";
+}
+
+
+else if (b2 === "NOT REPORTED" &&
+  Math.min(c2, d2) >= 400 &&
+  Math.max(c2, d2) <= 800 &&
+  time === "DAY"
+) {
+  availabilityResult = "RWY EDGE LGT & RWY END LGT OR RWY CTRL LINE MRKG(NOT LVTO)";
+}
+
+
+else if (b2 === "NOT REPORTED" &&
+  Math.min(c2, d2) >= 400 &&
+  Math.max(c2, d2) <= 500 &&
+  time === "DAY"
+) {
+  availabilityResult = "RWY EDGE LGT OR RWY CTRL LINE MRKG(NOT LVTO)";
+}
+
+else if (b2 === "NOT REPORTED" &&
+  Math.min(d2, c2) >= 300 &&
+  Math.min(d2, c2) < 400 &&
+  time === "NIGHT"
+) {
+  availabilityResult = "RWY CTRL LGHT OR RWY EDGE LGT & RWY END LGT & RWY CTRL LINE MRKG(LVTO)";
+}
+
+else if (b2 === "NOT REPORTED" &&
+  Math.min(d2, c2) >= 300 &&
+  Math.min(d2, c2) < 400 &&
+  time === "DAY"
+) {
+  availabilityResult = "RWY EDGE LGT & RWY CTRL LINE MRKG(LVTO)";
+}
+
+
+
+
+
+else if (b2 === "NOT REPORTED" &&
+  Math.min(c2, d2) >= 200 &&
+  Math.min(c2, d2) < 300 &&
+  ((time === "NIGHT")||(time==="DAY"))
+) {
+  availabilityResult = "RUNWAY EDGE LIGHTS AND RUNWAY CENTRAL LINE LIGHTS(LVTO)";
+}
+
+
+else if (c2 === "NOT REPORTED" &&
+  Math.min(b2, d2) >= 200 &&
+  Math.min(b2, d2) < 300 &&
+  ((time === "NIGHT")||(time==="DAY"))
+) {
+  availabilityResult = "RUNWAY EDGE LIGHTS AND RUNWAY CENTRAL LINE LIGHTS(LVTO)";
+}
+
+
+else if (d2 === "NOT REPORTED" &&
+  Math.min(b2, c2) >= 200 &&
+  Math.min(b2, c2) < 300 &&
+  ((time === "NIGHT")||(time==="DAY"))
+) {
+  availabilityResult = "RUNWAY EDGE LIGHTS AND RUNWAY CENTRAL LINE LIGHTS(LVTO)";
+}
+
+else if (c2 === "NOT REPORTED" &&
+  Math.min(b2, d2) >= 500 &&
+  Math.max(b2, d2) <= 800 &&
+  time === "DAY"
+) {
+  availabilityResult = "ADEQUATE VISUAL REFERENCE";
+}
+
+else if (c2 === "NOT REPORTED" &&
+  Math.min(b2, d2) >= 400 &&
+  Math.max(b2, d2) <= 800 &&
+  time === "NIGHT"
+) {
+  availabilityResult = "RWY EDGE LGT OR CENTRE LINE LGTS & RWY END LGT (NOT LVTO)";
+}
+
+
+else if (c2 === "NOT REPORTED" &&
+  Math.min(b2, d2) >= 400 &&
+  Math.min(b2, d2) <= 500 &&
+  time === "DAY"
+) {
+  availabilityResult = "RWY EDGE LGT OR RWY CTRL LINE MRKG(NOT LVTO)";
+}
+
+
+else if (c2 === "NOT REPORTED" &&
+  Math.min(d2, b2) >= 300 &&
+  Math.min(d2, b2) < 400 &&
+  time === "NIGHT"
+) {
+  availabilityResult = "RWY CTRL LGHT OR RWY EDGE LGT & RWY END LGT & RWY CTRL LINE MRKG(LVTO)";
+}
+
+else if (c2 === "NOT REPORTED" &&
+  Math.min(d2, b2) >= 300 &&
+  Math.min(d2, b2) < 400 &&
+  time === "DAY"
+) {
+  availabilityResult = "RWY EDGE LGT & RWY CTRL LINE MRKG(LVTO)";
+}
+
+
+else if (c2 === "NOT REPORTED" &&
+  Math.min(b2, d2) >= 200 &&
+  Math.min(b2, d2) < 300 &&
+  ((time === "NIGHT")||(time==="DAY"))
+) {
+  availabilityResult = "RUNWAY EDGE LIGHTS AND RUNWAY CENTRE LINE LIGHTS(LVTO)";
+}
+
+
+else if (d2 === "NOT REPORTED" &&
+  Math.min(b2, c2) >= 500 &&
+  Math.max(b2, c2) <= 800 &&
+  time === "DAY"
+) {
+  availabilityResult = "ADEQUATE VISUAL REFERENCE";
+}
+
+else if (d2 === "NOT REPORTED" &&
+  Math.min(b2, c2) >= 400 &&
+  Math.max(b2, c2) <= 800 &&
+  time === "NIGHT"
+) {
+  availabilityResult = "RWY EDGE LGT OR CENTRE LINE LGTS & RWY END LGT (NOT LVTO)";
+}
+
+
+else if (d2 === "NOT REPORTED" &&
+  Math.min(b2, c2) >= 400 &&
+  Math.min(b2, c2) < 500 &&
+  time === "DAY"
+) {
+  availabilityResult = "RWY EDGE LGT OR RWY CTRL LINE MRKG(NOT LVTO)";
+}
+
+else if (d2 === "NOT REPORTED" &&
+  Math.min(b2, c2) >= 300 &&
+  Math.min(b2, c2) < 400 &&
+  time === "NIGHT"
+) {
+  availabilityResult = "RWY CTRL LGHT OR RWY EDGE LGT & RWY END LGT & RWY CTRL LINE MRKG(LVTO)";
+}
+
+else if (d2 === "NOT REPORTED" &&
+  Math.min(b2, c2) >= 300 &&
+  Math.min(b2, c2) < 400 &&
+  time === "DAY"
+) {
+  availabilityResult = "RWY EDGE LGT & RWY CTRL LINE MRKG(LVTO)";
+}
+
+
+
+else if (d2 === "NOT REPORTED" &&
+  Math.min(b2, c2) >= 200 &&
+  Math.min(b2, c2) < 300 &&
+  ((time === "NIGHT")||(time==="DAY"))
+) {
+  availabilityResult = "Runway edge lights and Runway Centre line lights";
+}
+
+
+
+
+
+else if ( b2 >= 500 && c2 === "NOT REPORTED" && d2 === "NOT REPORTED" && time === "DAY" )
+ {
+  availabilityResult = "ADEQUATE VISUAL REFERENCE";
+}
+
+
+else if ( b2 >= 400 && c2 === "NOT REPORTED" && d2 === "NOT REPORTED" && time === "NIGHT" )
+ {
+  availabilityResult = "RWY EDGE LGT OR CENTRE LINE LGTS & RWY END LGT (NOT LVTO)";
+}
+
+
+
+
+else if ( (b2 >= 500) && (c2 >= 125 || c2 === "NOT REPORTED") && (d2 >= 125 || d2 === "NOT REPORTED") && (Math.min(c2, d2) >= 500) && (time === "DAY") )
+ {
+  availabilityResult = "ADEQUATE VISUAL REFERENCE";
+}
+
+else if (
+  (b2 >= 500) && (c2 === "NOT REPORTED") && (d2 === "NOT REPORTED") && (time === "DAY" )) {
+  availabilityResult = "ADEQUATE VISUAL REFERENCE";
+}
+
+
+
+else if ( b2 >= 400 && b2<500 && c2 === "NOT REPORTED" && d2 === "NOT REPORTED" && time === "DAY" )
+ {
+  availabilityResult = "RWY EDGE LGT OR RWY CTRL LINE MRKG(NOT LVTO)";
+}
+
+
+else if ( b2 >= 300 && b2<400 && c2 === "NOT REPORTED" && d2 === "NOT REPORTED" && time === "NIGHT" )
+ {
+  availabilityResult = "RWY CTRL LGHT OR RWY EDGE LGT & RWY END LGT & RWY CTRL LINE MRKG(LVTO)";
+}
+
+
+else if ( b2 >= 300 && b2<400 && c2 === "NOT REPORTED" && d2 === "NOT REPORTED" && time === "DAY" )
+ {
+  availabilityResult = "RWY EDGE LGT AND RWY CTRL LINE MRKG(LVTO)";
+}
+
+else if ( b2 >= 200 && b2<300 && c2 === "NOT REPORTED" && d2 === "NOT REPORTED" && ((time === "DAY")||(time=== "NIGHT")) )
+ {
+  availabilityResult = "RUNWAY EDGE LIGHTS AND RUNWAY CENTRE LINE LIGHTS(LVTO)";
+}
+
+
+else if (
+  Math.min(b2, c2, d2) >= 500 &&
+  Math.max(b2, c2, d2) <= 800 &&
+  time === "NIGHT"
+) {
+  availabilityResult = "RWY EDGE LGT OR CENTRE LINE LGTS & RWY END LGT (NOT LVTO)";
+}
+
+else if (
+  b2 >= 400 && (c2 >= 125 || c2 === "NOT REPORTED") && (d2 >= 125 || d2 === "NOT REPORTED") && Math.min(b2,c2, d2) >= 400 &&
+  time === "NIGHT"
+) {
+  availabilityResult = "RWY EDGE LGT OR CENTRE LINE LGTS & RWY END LGT (NOT LVTO)";
+}
+
+else if (
+  (b2 >= 400 && b2<500 && (c2 > 125 || c2 === "NOT REPORTED") && (d2 > 125 || d2 === "NOT REPORTED") && Math.min(b2, c2, d2) >= 400) &&
+  time === "DAY"
+) {
+  availabilityResult = "RWY EDGE LGT OR RWY CTRL LINE MRKG(NOT LVTO)";
+}
+
+
+else if (
+  b2 >= 300 && b2<400 && (c2 > 125 || c2 === "NOT REPORTED") && (d2 > 125 || d2 === "NOT REPORTED") &&
+  time === "DAY"
+) {
+  availabilityResult = "RWY EDGE LGT & RWY CTRL LINE MRKG(LVTO)";
+}
+
+
+else if (
+  b2 >= 300 && b2<400 && (c2 > 125 || c2 === "NOT REPORTED") && (d2 > 125 || d2 === "NOT REPORTED") &&
+  time === "NIGHT"
+) {
+  availabilityResult = "RWY CTRL LGHT OR RWY EDGE LGT & RWY END LGT & RWY CTRL LINE MRKG(LVTO)";
+}
+
+else if (
+  b2 >= 200 && b2<300 && (c2 > 125 || c2 === "NOT REPORTED") && (d2 > 125 || d2 === "NOT REPORTED") &&
+  ((time === "DAY")||(time === "NIGHT"))
+) {
+  availabilityResult = "RUNWAY EDGE LIGHTS AND RUNWAY CENTRE LINE LIGHTS(LVTO)";
+}
+
+ else if (
+  Math.min(b2, c2, d2) >= 400 &&
+  Math.min(b2, c2, d2) < 500 &&
+  time === "NIGHT"
+) {
+  availabilityResult = "RWY EDGE LGT OR CENTRE LINE LGTS & RWY END LGT (NOT LVTO)";
+}
+
+else if (
+  Math.min(b2, c2, d2) >= 400 &&
+  time === "DAY"
+) {
+  availabilityResult = "RWY EDGE LGT OR RWY CTRL LINE MRKG(NOT LVTO)";
+}
+
+
+
+else if (
+  departureResult === "DEPARTURE CAN GO" &&
+  (c2 === "NOT REPORTED" || d2 === "NOT REPORTED") &&
+  Math.min(b2, c2, d2) >= 300 &&
+  Math.min(b2, c2, d2) < 400 &&
+  time === "NIGHT"
+) {
+  availabilityResult = "RWY CTRL LGHT OR RWY EDGE LGT & RWY END LGT & RWY CTRL LINE MRKG(LVTO)";
+}
+
+
+
+
+
+
+else if ( (departureResult === "DEPARTURE CAN GO") &&  (Math.min(b2, c2, d2) >= 300) && (Math.min(b2, c2, d2) < 400) && (time === "NIGHT")) {
+  availabilityResult = "RWY CTRL LGHT OR RWY EDGE LGT & RWY END LGT & RWY CTRL LINE MRKG(LVTO)";
+}
+
+
+
+ else if ((departureResult === "DEPARTURE CAN GO") && (Math.min(b2, c2, d2) >= 300) && (Math.min(b2, c2, d2) < 400) && (time === "DAY"))
+{
+  availabilityResult = "RWY EDGE LGT & RWY CTRL LINE MRKG(LVTO)";
+}
+
+else if (
+  Math.min(b2, c2, d2) >= 200 &&
+  Math.min(b2, c2, d2) < 300
+) {
+  availabilityResult = "RWY EDGE LGT & RWY END LGT & RWY CTRL LINE LIGHT(LVTO)";
+}
+
+else if (
+  Math.min(b2, c2, d2) >= 125 &&
+  Math.min(b2, c2, d2) < 200
+) {
+  availabilityResult = "HI INTENSITY RWY EDGE LGT & RWY CTRL LINE LIGHT & RVR INFO(LVTO)";
+}
+
+      document.getElementById("ils-approach-result").value = result;
+      document.getElementById("departure-result").value = departureResult;
+      document.getElementById("availability-result").value = availabilityResult;
+    }
+
+
+function handleRadioSelection(runway) {
+    var outputTextarea1 = document.getElementById('textarea1');
+    var outputTextarea2 = document.getElementById('textarea2');
+
+    if (runway === '01R') {
+      outputTextarea1.value = '10 NM (VACATION VIA A) ; 18 NM (BACKTRACK AND VACATE VIA A)';
+      outputTextarea2.value = '14 NM (FL) ; 22 NM (BACKTRACK AND VACATE VIA A)';
+    } else if (runway === '19L') {
+      outputTextarea1.value = '10 NM';
+      outputTextarea2.value = '16 NM(K INT); 22NM (FL)';
+    }
+  }
+
+
+
+
+ function calculateLightingOutput() {
+      var lighting = document.getElementById("lighting").value;
+      var lightingOutput = "";
+     
+      // Apply the formula for Lighting Output
+      if (lighting === "6-100% APP LGT INNR 450M") {
+        lightingOutput = "SUSPEND CAT2/3";
+      } else if (lighting === "0-5% APP LGT INNR 450M") {
+        lightingOutput = "NO EFFECT";
+      }
+else if (lighting === "0-5% THR LGT") {
+        lightingOutput = "NO EFFECT";
+      }
+
+else if (lighting === "6-100% THR LGT") {
+        lightingOutput = "SUSPEND CAT2/3";
+      }
+else if (lighting === "6-100% CNTRL LGT") {
+        lightingOutput = "SUSPEND CAT2/3";
+      } else if (lighting === "0-5% CNTRL LGT") {
+        lightingOutput = "NO EFFECT";
+      } else if (lighting === "6-100% EDGE LGT") {
+        lightingOutput = "SUSPEND CAT2/3";
+      } else if (lighting === "0-5% EDGE LGT") {
+        lightingOutput = "NO EFFECT";
+      } else if (lighting === "0-10% TDZ LGT") {
+        lightingOutput = "NO EFFECT";
+      } else if (lighting === "11-100% TDZ LGT") {
+        lightingOutput = "SUSPEND CAT2/3";
+      } else if (lighting === "26-100% END LGT") {
+        lightingOutput = "SUSPEND CAT2/3";
+      } else if (lighting === "0-25% END LGT") {
+        lightingOutput = "NO EFFECT";
+      } else if (lighting === "16-100% APP LGT OUTR 450M") {
+        lightingOutput = "SUSPEND CAT2/3";
+      } else if (lighting === "0-15% APP LGT OUTR 450M") {
+        lightingOutput = "NO EFFECT";
+      } else if (lighting === "LLZ") {
+        lightingOutput = "SUSPEND CAT2/3";
+      } else if (lighting === "GP") {
+        lightingOutput = "SUSPEND CAT2/3";
+      } else if (lighting === "DME") {
+        lightingOutput = "SUSPEND CAT2/3";
+      } else if (lighting === "ASMGCS" || lighting === "STPBR") {
+        lightingOutput = "SUSPEND OPS IF RVR BELOW 350M";
+      }
+     
+      document.getElementById("lighting-output").value = lightingOutput;
+    }
+
+
+
+  // Get the radio buttons and the output textarea
+  const lightsRadioButtons = document.querySelectorAll('input[name="lights"]');
+  const outputTextarea = document.getElementById('outputTextarea');
+
+  // Add event listener to the radio buttons
+  lightsRadioButtons.forEach(function(radioButton) {
+    radioButton.addEventListener('change', function() {
+      // Check the selected value and update the output textarea accordingly
+      if (this.value === 'yes') {
+        outputTextarea.value = 'SUSPEND CAT2/3';
+      } else if (this.value === 'no') {
+        outputTextarea.value = 'FOLLOW RESULT AS SHOWN IN OUTPUT ';
+      }
+    });
+  });
+
+
+
+
+
+
+
+
+    function calculateActionToBeTaken() {
+      var f6 = document.getElementById("f6").value;
+      var g6 = document.getElementById("g6").value;
+      var h6 = document.getElementById("h6").value;
+      var trend = document.getElementById("trend").value;
+
+     var actionToBeTaken = "";
+var minRVRR = Math.min(f6, g6, h6);
+
+if (f6 === "" || g6 === "" || h6 === ""||trend===""||trend==="NOSIG"||trend==="nosig"||trend==="Nosig") {
+  actionToBeTaken = "please enter TREND OR enter VISIBILITY if trend is NOSIG";
+}
+
+else if ((f6 >= 800 && g6 >= 800 && h6 >= 800) && (f6 < 1200 || g6 < 1200 || h6 < 1200))
+{
+  actionToBeTaken = "IMPLEMENT SAFEGUARDING PROC";
+}
+
+else if( (trend <=800 && trend >=1) && (f6 >= 1200 && g6 >= 1200 && h6 >= 1200))
+{
+  actionToBeTaken = "IMPLEMENT SAFEGUARDING PROC";
+}
+
+
+
+else if (f6 < 800 || g6 < 800 || h6 < 800) {
+  actionToBeTaken = "IMPLEMENT LVP PROC BUT ENSURE SP IS COMPLETED";
+}
+
+
+
+else if (minRVRR >= 1200 && trend > 800)
+ {
+  actionToBeTaken = "NOT YET IN RANGE";
+}
+
+
+
+else if(  (f6 < 1200) && ((g6 === "NOT REPORTED") && (h6 === "NOT REPORTED")) )
+{
+  actionToBeTaken = "IMPLEMENT SAFEGUARDING PROC";
+}
+
+else if((f6 < 1200) && ((g6 === "NOT REPORTED") && (h6 === "NOT REPORTED")))
+{
+  actionToBeTaken = "IMPLEMENT SAFEGUARDING PROC";
+}
+
+else if((h6 < 1200) && ((f6 === "NOT REPORTED") && (g6 === "NOT REPORTED")))
+{
+  actionToBeTaken = "IMPLEMENT SAFEGUARDING PROC";
+}
+
+
+else if((g6 < 1200) && ((f6 === "NOT REPORTED") || (h6 === "NOT REPORTED")) && trend >=0)
+{
+  actionToBeTaken = "IMPLEMENT SAFEGUARDING PROC";
+}
+
+
+else if(h6 < 1200 && ((f6 === "NOT REPORTED") || (g6 === "NOT REPORTED")) && trend>=0)
+{
+  actionToBeTaken = "IMPLEMENT SAFEGUARDING PROC";
+}
+
+else if((f6 < 1200) && ((g6 === "NOT REPORTED") || (h6 === "NOT REPORTED")) && trend>=0 )
+{
+  actionToBeTaken = "IMPLEMENT SAFEGUARDING PROC";
+}
+
+else if(  (f6 >= 1200) && (g6 === "NOT REPORTED") && (h6 === "NOT REPORTED") && (trend <=800) && (trend>=0) )
+{
+  actionToBeTaken = "IMPLEMENT SAFEGUARDING PROC";
+}
+
+else if((g6 >= 1200) && (f6 === "NOT REPORTED") && (h6 === "NOT REPORTED") && (trend <=800) && (trend>=0)  )
+{
+  actionToBeTaken = "IMPLEMENT SAFEGUARDING PROC";
+}
+
+else if( (h6 >= 1200) && (f6 === "NOT REPORTED") && (g6 === "NOT REPORTED") && (trend <=800) && (trend>=0) )
+{
+  actionToBeTaken = "IMPLEMENT SAFEGUARDING PROC";
+}
+
+else if((h6 === "NOT REPORTED") && (f6 === "NOT REPORTED") && (g6 === "NOT REPORTED") && ((trend <=800)&&(trend>=0)))
+{
+  actionToBeTaken = "IMPLEMENT SAFEGUARDING PROC";
+}
+
+else {
+  actionToBeTaken = "NOT YET IN RANGE FOR SP/LVP";
+}
+      document.getElementById("action-to-be-taken-result").value = actionToBeTaken;
+    }
+
+
+ window.addEventListener('load', function() {
+    var boxContainer = document.querySelector('.box-container');
+    boxContainer.classList.add('show');
+  });
+
+	
+function openNewPage() {
+      var newPageContent = document.getElementById("newPageContent").innerHTML;
+      var newWindow = window.open("", "_blank");
+      newWindow.document.write(newPageContent);}
+
+
+
+
+  </script>
+
+</body>
+</html>
